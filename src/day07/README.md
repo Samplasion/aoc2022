@@ -46,41 +46,45 @@ $ ls
 
 The filesystem consists of a tree of files (plain data) and directories (which can contain other directories or files). The outermost directory is called `/`. You can navigate around the filesystem, moving into or out of directories and listing the contents of the directory you're currently in.
 
-Within the terminal output, lines that begin with `$` are **commands you executed**, very much like some modern computers:
+Within the terminal output, lines that begin with `<!-- Content between the PART1 and PART2 tags will be automatically replaced with the challenge's description. -->
+
+# 🎄 Advent of Code 2022 - day 7 🎄
+
+ are **commands you executed**, very much like some modern computers:
 
 *   `cd` means **change directory**. This changes which directory is the current directory, but the specific result depends on the argument:
-
-
-*   `cd x` moves **in** one level: it looks in the current directory for the directory named `x` and makes it the current directory.
-*   `cd ..` moves **out** one level: it finds the directory that contains the current directory, then makes that directory the current directory.
-*   `cd /` switches the current directory to the outermost directory, `/`.
-
-
+      
+    
+      *   `cd x` moves **in** one level: it looks in the current directory for the directory named `x` and makes it the current directory.
+      *   `cd ..` moves **out** one level: it finds the directory that contains the current directory, then makes that directory the current directory.
+      *   `cd /` switches the current directory to the outermost directory, `/`.
+      
+    
 *   `ls` means **list**. It prints out all of the files and directories immediately contained by the current directory:
-
-
-*   `123 abc` means that the current directory contains a file named `abc` with size `123`.
-*   `dir xyz` means that the current directory contains a directory named `xyz`.
-
-
+      
+    
+      *   `123 abc` means that the current directory contains a file named `abc` with size `123`.
+      *   `dir xyz` means that the current directory contains a directory named `xyz`.
+      
+    
 
 Given the commands and output in the example above, you can determine that the filesystem looks visually like this:
 
 ```
 - / (dir)
-- a (dir)
-- e (dir)
-- i (file, size=584)
-- f (file, size=29116)
-- g (file, size=2557)
-- h.lst (file, size=62596)
-- b.txt (file, size=14848514)
-- c.dat (file, size=8504156)
-- d (dir)
-- j (file, size=4060174)
-- d.log (file, size=8033020)
-- d.ext (file, size=5626152)
-- k (file, size=7214296)
+  - a (dir)
+    - e (dir)
+      - i (file, size=584)
+    - f (file, size=29116)
+    - g (file, size=2557)
+    - h.lst (file, size=62596)
+  - b.txt (file, size=14848514)
+  - c.dat (file, size=8504156)
+  - d (dir)
+    - j (file, size=4060174)
+    - d.log (file, size=8033020)
+    - d.ext (file, size=5626152)
+    - k (file, size=7214296)
 ```
 
 Here, there are four directories: `/` (the outermost directory), `a` and `d` (which are in `/`), and `e` (which is in `a`). These directories also contain files of various sizes.
@@ -100,7 +104,24 @@ Find all of the directories with a total size of at most 100000. **What is the s
 <!--/PART1-->
 
 <!--PART2-->
-Part 2 locked
+## \--- Part Two ---
+
+Now, you're ready to choose a directory to delete.
+
+The total disk space available to the filesystem is `**70000000**`. To run the update, you need unused space of at least `**30000000**`. You need to find a directory you can delete that will **free up enough space** to run the update.
+
+In the example above, the total size of the outermost directory (and thus the total amount of used space) is `48381165`; this means that the size of the **unused** space must currently be `21618835`, which isn't quite the `30000000` required by the update. Therefore, the update still requires a directory with total size of at least `8381165` to be deleted before it can run.
+
+To achieve this, you have the following options:
+
+*   Delete directory `e`, which would increase unused space by `584`.
+*   Delete directory `a`, which would increase unused space by `94853`.
+*   Delete directory `d`, which would increase unused space by `24933642`.
+*   Delete directory `/`, which would increase unused space by `48381165`.
+
+Directories `e` and `a` are both too small; deleting them would not free up enough space. However, directories `d` and `/` are both big enough! Between these, choose the **smallest**: `d`, increasing unused space by `**24933642**`.
+
+Find the smallest directory that, if deleted, would free up enough space on the filesystem to run the update. **What is the total size of that directory?**
 <!--/PART2-->
 
 ## Notes
