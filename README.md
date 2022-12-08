@@ -65,58 +65,58 @@ aoc run 25
 
 ### Day 1
 
-✅ Part 1 (in 0.56ms)  
-✅ Part 2 (in 0.59ms)
+✅ Part 1 (in 0.71ms)  
+✅ Part 2 (in 0.58ms)
 
-Total time: 1.16ms
+Total time: 1.30ms
 
 
 ### Day 2
 
-✅ Part 1 (in 1.87ms)  
-✅ Part 2 (in 1.37ms)
+✅ Part 1 (in 1.90ms)  
+✅ Part 2 (in 1.63ms)
 
-Total time: 3.24ms
+Total time: 3.53ms
 
 
 ### Day 3
 
-✅ Part 1 (in 0.51ms)  
+✅ Part 1 (in 0.74ms)  
 ✅ Part 2 (in 0.52ms)
 
-Total time: 1.03ms
+Total time: 1.26ms
 
 
 ### Day 4
 
 ✅ Part 1 (in 2.17ms)  
-✅ Part 2 (in 2.01ms)
+✅ Part 2 (in 2.13ms)
 
-Total time: 4.18ms
+Total time: 4.30ms
 
 
 ### Day 5
 
-✅ Part 1 (in 1.91ms)  
-✅ Part 2 (in 17.0ms)
+✅ Part 1 (in 2.63ms)  
+✅ Part 2 (in 1.83ms)
 
-Total time: 18.9ms
+Total time: 4.46ms
 
 
 ### Day 6
 
-✅ Part 1 (in 3.24ms)  
-✅ Part 2 (in 28.1ms)
+✅ Part 1 (in 2.56ms)  
+✅ Part 2 (in 19.3ms)
 
-Total time: 31.4ms
+Total time: 21.9ms
 
 
 ### Day 7
 
-✅ Part 1 (in 2.01ms)  
-✅ Part 2 (in 2.61ms)
+✅ Part 1 (in 2.33ms)  
+✅ Part 2 (in 18.6ms)
 
-Total time: 4.62ms
+Total time: 20.9ms
 
 
 ### Day 8

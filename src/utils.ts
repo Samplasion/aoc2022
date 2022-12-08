@@ -15,7 +15,7 @@ Number.prototype.betweenInc = function(lower, upper) {
     return this >= lower && this <= upper;
 }
 Number.prototype.betweenEx = function(lower, upper) {
-    return this > lower && this < upper;
+    return this >= lower && this < upper;
 }
 // #endregion
 

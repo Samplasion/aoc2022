@@ -19,8 +19,8 @@ const part1 = (rawInput: string) => {
         if (pos.eq(new utils.Vector(x, y))) continue;
         if (input[pos.y][pos.x] >= input[y][x]) return false;
       } while (
-        pos.x.betweenEx(0, input.length - 1) &&
-        pos.y.betweenEx(0, input[0].length - 1)
+        pos.x.betweenEx(1, input.length - 1) &&
+        pos.y.betweenEx(1, input[0].length - 1)
       );
       return true;
     });
@@ -45,8 +45,8 @@ const part2 = (rawInput: string) => {
       let pos = new utils.Vector(x, y);
       let trees = 0;
       while (
-        pos.x.betweenEx(0, input.length - 1) &&
-        pos.y.betweenEx(0, input[0].length - 1)
+        pos.x.betweenEx(1, input.length - 1) &&
+        pos.y.betweenEx(1, input[0].length - 1)
       ) {
         pos = pos.add(dir);
         if (pos.eq(new utils.Vector(x, y))) continue;
