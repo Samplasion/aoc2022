@@ -1,4 +1,5 @@
 <!-- Entries between SOLUTIONS and RESULTS tags are auto-generated -->
+<!--useTabularResults=true-->
 
 # 🎄 Advent of Code 2022 🎄
 
@@ -62,206 +63,33 @@ aoc run 25
 ## Results
 
 <!--RESULTS-->
-
-### Day 1
-
-✅ Part 1 (in 0.71ms)  
-✅ Part 2 (in 0.58ms)
-
-Total time: 1.30ms
-
-
-### Day 2
-
-✅ Part 1 (in 1.90ms)  
-✅ Part 2 (in 1.63ms)
-
-Total time: 3.53ms
-
-
-### Day 3
-
-✅ Part 1 (in 0.74ms)  
-✅ Part 2 (in 0.52ms)
-
-Total time: 1.26ms
-
-
-### Day 4
-
-✅ Part 1 (in 2.17ms)  
-✅ Part 2 (in 2.13ms)
-
-Total time: 4.30ms
-
-
-### Day 5
-
-✅ Part 1 (in 2.63ms)  
-✅ Part 2 (in 1.83ms)
-
-Total time: 4.46ms
-
-
-### Day 6
-
-✅ Part 1 (in 2.56ms)  
-✅ Part 2 (in 19.3ms)
-
-Total time: 21.9ms
-
-
-### Day 7
-
-✅ Part 1 (in 2.33ms)  
-✅ Part 2 (in 18.6ms)
-
-Total time: 20.9ms
-
-
-### Day 8
-
-✅ Part 1 (in 15.1ms)  
-✅ Part 2 (in 16.6ms)
-
-Total time: 31.7ms
-
-
-### Day 9
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 10
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 11
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 12
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 13
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 14
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 15
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 16
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 17
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 18
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 19
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 20
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 21
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 22
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 23
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 24
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
-
-### Day 25
-
-❌ Part 1  
-❌ Part 2
-
-Total time: 0.00ms
-
+| Day  | Part 1 | Part 2 | Total time |
+|------|--------|--------|------------|
+|  1  | ✅ (in 0.71ms) | ✅ (in 0.58ms) | 1.30ms |
+|  2  | ✅ (in 1.90ms) | ✅ (in 1.63ms) | 3.53ms |
+|  3  | ✅ (in 0.74ms) | ✅ (in 0.52ms) | 1.26ms |
+|  4  | ✅ (in 2.17ms) | ✅ (in 2.13ms) | 4.30ms |
+|  5  | ✅ (in 2.63ms) | ✅ (in 1.83ms) | 4.46ms |
+|  6  | ✅ (in 2.56ms) | ✅ (in 19.3ms) | 21.9ms |
+|  7  | ✅ (in 2.33ms) | ✅ (in 18.6ms) | 20.9ms |
+|  8  | ✅ (in 20.8ms) | ✅ (in 39.5ms) | 60.3ms |
+|  9  | ❌ | ❌ |  |
+|  10  | ❌ | ❌ |  |
+|  11  | ❌ | ❌ |  |
+|  12  | ❌ | ❌ |  |
+|  13  | ❌ | ❌ |  |
+|  14  | ❌ | ❌ |  |
+|  15  | ❌ | ❌ |  |
+|  16  | ❌ | ❌ |  |
+|  17  | ❌ | ❌ |  |
+|  18  | ❌ | ❌ |  |
+|  19  | ❌ | ❌ |  |
+|  20  | ❌ | ❌ |  |
+|  21  | ❌ | ❌ |  |
+|  22  | ❌ | ❌ |  |
+|  23  | ❌ | ❌ |  |
+|  24  | ❌ | ❌ |  |
+|  25  | ❌ | ❌ |  |
 <!--/RESULTS-->
 
 ---
