@@ -17,7 +17,7 @@
 [![Day 05](https://img.shields.io/badge/Day%2005-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day05)
 [![Day 06](https://img.shields.io/badge/Day%2006-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day06)
 [![Day 07](https://img.shields.io/badge/Day%2007-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day07)
-![Day 08](https://img.shields.io/badge/Day%2008-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
+[![Day 08](https://img.shields.io/badge/Day%2008-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day08)
 ![Day 09](https://img.shields.io/badge/Day%2009-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
 ![Day 10](https://img.shields.io/badge/Day%2010-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
 ![Day 11](https://img.shields.io/badge/Day%2011-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
@@ -121,10 +121,10 @@ Total time: 4.62ms
 
 ### Day 8
 
-❌ Part 1  
-❌ Part 2
+✅ Part 1 (in 15.1ms)  
+✅ Part 2 (in 16.6ms)
 
-Total time: 0.00ms
+Total time: 31.7ms
 
 
 ### Day 9
