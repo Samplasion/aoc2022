@@ -100,6 +100,14 @@ export function cartesianProduct<A, B>(a: A[], b: B[]): [A, B][] {
 export function increasing(a: number, b: number) {
     return a - b;
 }
+
+export function clone(arr: Vector[]) {
+    const res = [] as Vector[];
+    arr.forEach((el, i) => {
+        res[i] = el.clone();
+    });
+    return res;
+}
 // #endregion
 
 // #region Classes
@@ -111,10 +119,10 @@ export class Vector {
         switch (letter) {
             case "N":
             case "U":
-                return new Vector(0, -1);
+                return new Vector(0, 1);
             case "S":
             case "D":
-                return new Vector(0, 1);
+                return new Vector(0, -1);
             case "E":
             case "R":
                 return new Vector(1, 0);
@@ -148,8 +156,33 @@ export class Vector {
             return this.x > 0 ? "E" : "W";
     }
 
+    get unit() {
+        return new Vector(
+            this.x / this.mag,
+            this.y / this.mag,
+        );
+    }
+
+    get tuple() {
+        return [this.x, this.y];
+    }
+
     add(vec: Vector): Vector {
         return new Vector(this.x + vec.x, this.y + vec.y);
+    }
+
+    subtract(vec: Vector): Vector {
+        return this.add(vec.neg());
+    }
+
+    manhattanDistance(vec: Vector) {
+        const deltaX = vec.x - this.x;
+        const deltaY = vec.y - this.y;
+        return Math.abs(deltaX) + Math.abs(deltaY);
+    }
+
+    isAdjacentTo(vec: Vector) {
+        return Math.sqrt((vec.x - this.x) ** 2 + (vec.y - this.y) ** 2) < 2;
     }
 
     neg() {
@@ -162,6 +195,10 @@ export class Vector {
 
     eq(other: Vector) {
         return this.x === other.x && this.y === other.y;
+    }
+
+    clone() {
+        return new Vector(this.x, this.y);
     }
 }
 
@@ -197,8 +234,15 @@ export class Range {
     }
 
     forEach(callback: RangeCallback) {
-        for (let i = this.from; i < this.to; i += this.step)
-            callback(i);
+        if (this.step > 0)
+            for (let i = this.from; i < this.to; i += this.step)
+                callback(i);
+        else {
+            // this.step < 0
+            // deno-lint-ignore for-direction
+            for (let i = this.from; i > this.to; i += this.step)
+                callback(i);
+        }
     }
 
     contains(num: number) {
