@@ -122,7 +122,7 @@ export function toLetters(grid: string[]): string {
         letters.push(candidates[0]);
     }
     return letters.join("");
-  }
+}
 // #endregion
 
 // #region Classes
