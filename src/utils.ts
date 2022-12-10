@@ -1,3 +1,5 @@
+import lettersBySymbol from "./ocr.ts";
+
 // #region Extensions
 declare global {
     interface String {
@@ -108,6 +110,19 @@ export function clone(arr: Vector[]) {
     });
     return res;
 }
+
+export function toLetters(grid: string[]): string {
+    const letters: string[] = []
+    for (let x = 0; x < grid[0].length; x += 5) {
+        let candidates = Object.keys(lettersBySymbol) as (keyof typeof lettersBySymbol)[];
+        for (let y = 0; y < grid.length; y++) {
+            const str = grid[y].slice(x, x + 4);
+            candidates = candidates.filter(c => lettersBySymbol[c][y] == str);
+        }
+        letters.push(candidates[0]);
+    }
+    return letters.join("");
+  }
 // #endregion
 
 // #region Classes
