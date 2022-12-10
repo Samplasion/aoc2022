@@ -15,7 +15,7 @@ const code = (part1: boolean) => (rawInput: string) => {
   let strengths = 0;
 
   crt.on("cycle", (cycle: number) => {
-    if (!(cycle % 40 == 20)) return;
+    if (cycle % 40 != 20) return;
     const cycleStrength = cycle * crt.registers.x;
     strengths += cycleStrength;
   });
