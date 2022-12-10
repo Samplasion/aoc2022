@@ -1,4 +1,4 @@
-import run from "https://deno.land/x/aoc@0.0.1-alpha.12/mod.ts";
+import run from "https://deno.land/x/aoc@0.0.1-alpha.13/mod.ts";
 
 type Bounds = [number, number];
 type Assignment = [Bounds, Bounds];
