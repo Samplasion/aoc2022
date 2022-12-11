@@ -1,6 +1,6 @@
 // TODO: Clean up
 
-import run from "https://deno.land/x/aoc@0.0.1-alpha.13/mod.ts";
+import run from "../deps.ts";
 import * as utils from "../utils.ts";
 
 type FilesystemEntry = File | Directory;

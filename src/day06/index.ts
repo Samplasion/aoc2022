@@ -1,4 +1,4 @@
-import run from "https://deno.land/x/aoc@0.0.1-alpha.13/mod.ts";
+import run from "../deps.ts";
 
 const parseInput = (rawInput: string) => {
   return rawInput.trim();

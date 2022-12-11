@@ -1,4 +1,4 @@
-import run, { getTests } from "https://deno.land/x/aoc@0.0.1-alpha.13/mod.ts";
+import run, { getTests } from "../deps.ts";
 import * as utils from "../utils.ts";
 import CRT from "./CRT.ts";
 import { matchInstruction } from "./instrs/mod.ts";

@@ -1,4 +1,4 @@
-import run from "https://deno.land/x/aoc@0.0.1-alpha.13/mod.ts";
+import run from "../deps.ts";
 import * as usefulTags from "https://deno.land/x/usefultags@1.2.0/usefulTags.mjs";
 import * as utils from "../utils.ts";
 
