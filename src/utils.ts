@@ -103,6 +103,10 @@ export function increasing(a: number, b: number) {
     return a - b;
 }
 
+export function decreasing(a: number, b: number) {
+    return b - a;
+}
+
 export function clone(arr: Vector[]) {
     const res = [] as Vector[];
     arr.forEach((el, i) => {
