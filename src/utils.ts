@@ -127,6 +127,56 @@ export function toLetters(grid: string[]): string {
     }
     return letters.join("");
 }
+
+export function gridMap<T, U>(grid: T[][], transformer: (el: T, i: number, j: number, grid: T[][]) => U): U[][] {
+    return grid.map((line, i) => line.map((el, j) => transformer(el, i, j, grid)));
+}
+
+export interface Node<T> {
+    position: Vector,
+    value: T,
+}
+export type DistancedNode<T> = [node: Node<T>, distance: number];
+export type BFSMatcher<T> = (a: Node<T>, b: Node<T>) => boolean;
+export type BFSCallback<T> = (node: Node<T>, queue: DistancedNode<T>[]) => boolean;
+export interface BFSParameters<T> {
+    matcher: BFSMatcher<T>,
+    startPosition: Vector,
+    endPosition?: Vector,
+    endCondition?: BFSCallback<T>,
+}
+export function toNodes<T>(grid: T[][]): Node<T>[][] {
+    return gridMap(grid, (el, i, j) => ({
+        position: new Vector(i, j),
+        value: el,
+    }));
+}
+export function bfs<T>(grid: Node<T>[][], { matcher, startPosition, endPosition, endCondition }: BFSParameters<T>) {
+    if (endPosition == null && endCondition == null)
+        throw new Error("Either endPosition or endCondition must not be null");
+
+    // Set of positions
+    const visited: Set<string> = new Set([startPosition.toString()]);
+    const q: DistancedNode<T>[] = [[startPosition.getIn(grid)!, 0]];
+
+    while (q.length != 0) {
+        const el = q.shift()!;
+
+        if ((endPosition != null && el[0].position.eq(endPosition)) || (endCondition != null && endCondition(el[0], q))) {
+            return el[1];
+        }
+
+        Vector.DIRECTIONS.forEach(dir => {
+            const target = el[0].position.add(dir);
+            if (target.getIn(grid) != null && !visited.has(target.toString()) && matcher(el[0], target.getIn(grid)!)) {
+                q.push([target.getIn(grid)!, el[1] + 1]);
+                visited.add(target.toString());
+            }
+        });
+    }
+
+    return -1;
+}
 // #endregion
 
 // #region Classes
@@ -218,6 +268,18 @@ export class Vector {
 
     clone() {
         return new Vector(this.x, this.y);
+    }
+
+    get [Symbol.toStringTag]() {
+        return `(${this.x}, ${this.y})`
+    }
+
+    toString() {
+        return this[Symbol.toStringTag];
+    }
+
+    getIn<T>(grid: T[][]): T | null {
+        return grid[this.x]?.[this.y];
     }
 }
 
