@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import lettersBySymbol from "./ocr.ts";
 
 // #region Extensions
@@ -330,4 +331,30 @@ export class Range {
         return num.betweenEx(this.from, this.to);
     }
 }
+// #endregion
+
+// #region Misc
+export enum Tristate {
+    yes = -1,
+    maybe = 0,
+    no = 1,
+}
+// deno-lint-ignore no-namespace
+export namespace Tristate {
+    export function fromBoolean(bool: boolean) {
+        return bool ? Tristate.yes : Tristate.no;
+    }
+    export function toBoolean(state: Tristate) {
+        switch (state) {
+            case Tristate.yes: return true;
+            case Tristate.no: return false;
+            default: throw new TypeError("State is Tristate.maybe");
+        }
+    }
+}
+// #endregion
+
+// #region NPM
+import deepEqual from "npm:deep-equal@^2.1.0";
+export { deepEqual };
 // #endregion
