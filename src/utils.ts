@@ -129,6 +129,21 @@ export function toLetters(grid: string[]): string {
     return letters.join("");
 }
 
+export type GridInstancer<T> = T | ((pos: Vector) => T);
+export function gridOf<T>(width: number, height: number, element: GridInstancer<T>): T[][] {
+    const cols: T[][] = [];
+    for (let i = 0; i < width; i++) {
+        const rows: T[] = [];
+        for (let j = 0; j < height; j++) {
+            const el = element instanceof Function ? element(new Vector(i, j)) : element;
+            rows.push(el);
+        }
+        cols.push(rows);
+    }
+
+    return cols;
+}
+
 export function gridMap<T, U>(grid: T[][], transformer: (el: T, i: number, j: number, grid: T[][]) => U): U[][] {
     return grid.map((line, i) => line.map((el, j) => transformer(el, i, j, grid)));
 }
@@ -178,6 +193,10 @@ export function bfs<T>(grid: Node<T>[][], { matcher, startPosition, endPosition,
 
     return -1;
 }
+
+export function toInt(value: string) {
+    return parseInt(value, 10);
+}
 // #endregion
 
 // #region Classes
@@ -200,6 +219,16 @@ export class Vector {
             case "L":
                 return new Vector(-1, 0);
         }
+    }
+
+    static intermediate(from: Vector, to: Vector) {
+        const positions: Vector[] = [];
+        const [fromX, toX] = [Math.min(from.x, to.x), Math.max(from.x, to.x)];
+        const [fromY, toY] = [Math.min(from.y, to.y), Math.max(from.y, to.y)];
+        for (let x = fromX; x <= toX; x++)
+            for (let y = fromY; y <= toY; y++)
+                positions.push(new Vector(x, y));
+        return positions;
     }
 
     get sqmag() {
