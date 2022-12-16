@@ -25,7 +25,7 @@
 [![Day 12](https://img.shields.io/badge/Day%2012-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day12)
 [![Day 13](https://img.shields.io/badge/Day%2013-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day13)
 [![Day 14](https://img.shields.io/badge/Day%2014-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day14)
-![Day 15](https://img.shields.io/badge/Day%2015-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
+[![Day 15](https://img.shields.io/badge/Day%2015-%E2%98%85%E2%98%85-brightgreen.svg?style=flat-square)](/src/day15)
 ![Day 16](https://img.shields.io/badge/Day%2016-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
 ![Day 17](https://img.shields.io/badge/Day%2017-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
 ![Day 18](https://img.shields.io/badge/Day%2018-%E2%98%86%E2%98%86-lightgrey.svg?style=flat-square)
@@ -79,7 +79,7 @@ aoc run 25
 |  12  | ✅ (in 27.3ms) | ✅ (in 18.9ms) | 46.2ms |
 |  13  | ✅ (in 2.47ms) | ✅ (in 80.6ms) | 83.1ms |
 |  14  | ✅ (in 62.1ms) | ✅ (in 149ms) | 212ms |
-|  15  | ❌ | ❌ |  |
+|  15  | ✅ (in 6s) | ✅ (in 1s) | 8s |
 |  16  | ❌ | ❌ |  |
 |  17  | ❌ | ❌ |  |
 |  18  | ❌ | ❌ |  |

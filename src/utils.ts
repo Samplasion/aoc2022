@@ -23,7 +23,17 @@ Number.prototype.betweenEx = function(lower, upper) {
 // #endregion
 
 // #region Functions
-export function unique<T>(...elements: T[]): T[] {
+export type EqualityCheck<T> = (a: T, b: T) => boolean;
+export function unique<T>(elements: T[], areEqual?: EqualityCheck<T>): T[] {
+    if (areEqual) {
+        const result: T[] = [];
+        elements.forEach(element => {
+            if (!result.some((t) => areEqual(element, t))) {
+                result.push(element);
+            }
+        });
+        return result;
+    }
     return [...new Set<T>(elements)];
 }
 
@@ -197,6 +207,73 @@ export function bfs<T>(grid: Node<T>[][], { matcher, startPosition, endPosition,
 export function toInt(value: string) {
     return parseInt(value, 10);
 }
+
+export function getCellsAtDistance<T>(grid: T[][], pos: Vector, distance: number) {
+    const center = new Vector(distance, distance);
+    const cells: T[][] = [];
+
+    for (let x = pos.x - distance; x <= pos.x + distance; x++) {
+        const column: T[] = [];
+        for (let y = pos.y - distance; y <= pos.y + distance; y++) {
+            const current = new Vector(x, y);
+            if (current.manhattanDistance(pos) <= distance)
+                column.push(current.getIn(grid)!);
+        }
+        cells.push(column);
+    }
+
+    return cells;
+}
+
+export type Grid<T> = T[][];
+export type WrappedGrid<T> = Grid<Cell<T>>;
+export type Cell<T> = {
+    position: Vector,
+    value: T,
+}
+export function wrap<T>(grid: Grid<T>): WrappedGrid<T> {
+    return gridMap(grid, (el, i, j) => ({
+        position: new Vector(i, j),
+        value: el,
+    }));
+}
+
+export function isInManhattanRadius(center: Vector, distance: number, point: Vector) {
+    return point.manhattanDistance(center) <= distance;
+}
+
+/**
+ * Returns the first layer of positions just outside the
+ * area accessible by [position] at Manhattan distance [disance].
+ * @param position The center of the circle/diamond
+ * @param distance The distance between the outer layer of the inside of the diamond and the center
+ * @example
+ * The area marked with `-` is the area accessible by C at distance 2.
+ * This function returns the positions marked by #.
+ * 
+ *   012345678
+ * 0 .........
+ * 1 ....#....
+ * 2 ...#-#...
+ * 3 ..#---#..
+ * 4 .#--C--#.
+ * 5 ..#---#..
+ * 6 ...#-#...
+ * 7 ....#....
+ * 8 .........
+ */
+export function manhattanCircle(position: Vector, distance: number): Vector[] {
+    const results: Vector[] = [];
+    let rendezvous = false;
+    for (let dx = 0, y = position.y - distance - 1; dx >= 0; rendezvous ? dx-- : dx++, y++) {
+        results.push(new Vector(position.x - dx, y));
+        results.push(new Vector(position.x + dx, y));
+        if (y == position.y) rendezvous = true;
+    }
+    // No point in checking every item for uniqueness if the results are many
+    if (results.length > 1e4) return results;
+    return unique(results, (a, b) => a.eq(b));
+}
 // #endregion
 
 // #region Classes
@@ -301,11 +378,11 @@ export class Vector {
     }
 
     get [Symbol.toStringTag]() {
-        return `(${this.x}, ${this.y})`
+        return "Vector";
     }
-
+    
     toString() {
-        return this[Symbol.toStringTag];
+        return `(${this.x}; ${this.y})`
     }
 
     getIn<T>(grid: T[][]): T | null {
