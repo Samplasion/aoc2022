@@ -64,7 +64,7 @@ const part2 = (rawInput: string, test: boolean) => {
     console.debug(" -> Checking", circle.length, "positions");
     for (const position of circle) {
       if (!position.x.betweenInc(0, max) || !position.y.betweenInc(0, max)) continue;
-      if (sensors.every(sensor => !utils.isInManhattanRadius(sensor.position, sensor.distance, position))) {
+      if (!sensors.some(sensor => utils.isInManhattanRadius(sensor.position, sensor.distance, position))) {
         console.log(position);
         return position.x * multiplier + position.y;
       }
